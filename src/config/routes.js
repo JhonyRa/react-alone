@@ -1,33 +1,35 @@
-import React from "react";
+import React,{Component, Children} from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
+
 
 import CalculatorPage from '../pages/CalculatorPage'
 import StarWarsPage from '../pages/StarWarsPage'
 import HomePage from '../pages/HomePage'
 import LoginPage from '../pages/LoginPage'
 
+import {isAuthenticated} from '../services/AuthenticationService'
+
 function SecureRoute ({children, ...rest}){
-  const isAuthenticated = function(){
-    return false;
-  }
- 
+  
   return (
     <Route {...rest} 
       render={
         props=>
-          isAuthenticated() ? ( 
+          isAuthenticated() ? (
               children
             ) : (
               <Redirect to={{ pathname : '/login', state:{ from: props.location } }} />
             )
           }
-  /> 
-  )
+  />  
+  )  
 }
+
 
 export default function Routes() {
   return (

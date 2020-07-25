@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import MyInputText from '../MyInputText';
 
+import {ButtonCalculator} from './css'
+
 class Calculator extends React.Component {
 
   constructor(props){
@@ -39,7 +41,7 @@ class Calculator extends React.Component {
         <MyInputText label="Valor 2" name="valueTwo"
                       value={this.valueTwo} onChange={this.onChange}/>
        
-        <button type="button" onClick={this.sum}> Calcular </button>
+        <ButtonCalculator type="button" onClick={this.sum}> Calcular </ButtonCalculator>
         <br/>
         { this.state.result !="" && <span> O resultado eh: {this.state.result}</span>}
       </form>

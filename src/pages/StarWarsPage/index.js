@@ -1,12 +1,18 @@
 import React from 'react';
 import NavBar from '../../components/NavBar'
-import './index.css';
+
+import StarWarsPeople from '../../components/star-wars/StarWarsPeople'
+
+import {StarWarsPageTitle} from './css'
 
 function StarWarsPage(){
     return(
         <div>
             <NavBar></NavBar>
-            <h2 className="star-wars-page-title">Bem vindo ao lado negão da força</h2>
+            <StarWarsPageTitle>Bem vindo ao lado negão da força</StarWarsPageTitle>
+
+            <StarWarsPeople/>
+            
         </div>
     );
 }
